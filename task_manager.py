@@ -8,7 +8,7 @@ def init():
         print("exists")
     else:
         with open(FILE, "w") as file:
-            FILE.dump([], file)  # Initialize with an empty list
+            json.dump([], file)  # Initialize with an empty list
 
 def main():
     init()
