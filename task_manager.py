@@ -78,6 +78,43 @@ def mark_done(id: int) -> None:
             break
     write_json(tasks)
 
+def list(status="all") -> None:
+    tasks = read_json()
+    match(status):
+        case "all":
+            for task in tasks:
+                print(f"Task: {task.get('description')}")
+                print(f"    id: {task.get('id')}")
+                print(f"    status: {task.get('status')}")
+                print(f"    Created: {task.get('createdAt')}")
+                print(f"    Updated: {task.get('updatedAt')}")
+        case "todo":
+            for task in tasks:
+                if task.get('status') == status:
+                    print(f"Task: {task.get('description')}")
+                    print(f"    id: {task.get('id')}")
+                    print(f"    status: {task.get('status')}")
+                    print(f"    Created: {task.get('createdAt')}")
+                    print(f"    Updated: {task.get('updatedAt')}")
+        
+        case "in-progress":
+             for task in tasks:
+                if task.get('status') == status:
+                    print(f"Task: {task.get('description')}")
+                    print(f"    id: {task.get('id')}")
+                    print(f"    status: {task.get('status')}")
+                    print(f"    Created: {task.get('createdAt')}")
+                    print(f"    Updated: {task.get('updatedAt')}")
+
+        case "done":
+             for task in tasks:
+                if task.get('status') == status:
+                    print(f"Task: {task.get('description')}")
+                    print(f"    id: {task.get('id')}")
+                    print(f"    status: {task.get('status')}")
+                    print(f"    Created: {task.get('createdAt')}")
+                    print(f"    Updated: {task.get('updatedAt')}")
+
 def main():
     update(3, "test")
     mark_done(3)
