@@ -39,7 +39,7 @@ def add(task: str) -> None:
       "updatedAt": datetime.datetime.now().isoformat()
     }
     tasks.append(data)
-    print(f"Task added successfully (ID: {len(tasks) + 1})")
+    print(f"Task added successfully (ID: {len(tasks)})")
     write_json(tasks)
 
 def delete(id: int) -> None:
@@ -83,6 +83,6 @@ def main():
     mark_done(3)
     print(read_json())
    
-   
+
 if __name__ == "__main__":
     main()

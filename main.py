@@ -2,7 +2,7 @@ import sys
 from task_manager import add, delete, update, mark_in_progress, mark_done
 
 def main():
-    commands = sys.argv[2:]
+    commands = sys.argv[1:]
     if commands[0] != 'task-cli' or len(commands) < 1:
         print("Usage: python main.py task-cli <command> [...]")
         print("    Commands: add, delete, update, list, mark-in-progress, mark-done")
