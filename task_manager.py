@@ -15,7 +15,7 @@ def read_json() -> list[dict]:
         data = json.load(file)  # Load and parse the JSON file
         return data 
 
-def write_json(data):
+def write_json(data: list[dict]) -> None:
     with open(FILE, "w") as file:
         json.dump(data, file, indent=4)
 
@@ -29,7 +29,7 @@ def update_ids(tasks: list[dict]) -> None:
         task['id'] = count
         count+=1
 
-def add(task: str):
+def add(task: str) -> None:
     tasks = read_json()
     data = {
       "id": len(tasks) + 1,
@@ -42,7 +42,7 @@ def add(task: str):
     print(f"Task added successfully (ID: {len(tasks) + 1})")
     write_json(tasks)
 
-def delete(id):
+def delete(id: int) -> None:
     tasks = read_json()
     for task in tasks:
         if task.get('id') == id:
@@ -51,16 +51,36 @@ def delete(id):
             break
     write_json(tasks)
 
-def update(id: int, new_description: str):
+def update(id: int, new_description: str) -> None:
     tasks = read_json()
     for task in tasks:
         if task.get('id') == id:
             task['description'] = new_description
+            task['updatedAt'] = datetime.datetime.now().isoformat()
+            break
+    write_json(tasks)
+
+def mark_in_progress(id: int) -> None:
+    tasks = read_json()
+    for task in tasks:
+        if task.get('id') == id:
+            task['status'] = "in-progress"
+            task['updatedAt'] = datetime.datetime.now().isoformat()
+            break
+    write_json(tasks)
+
+def mark_done(id: int) -> None:
+    tasks = read_json()
+    for task in tasks:
+        if task.get('id') == id:
+            task['status'] = "done"
+            task['updatedAt'] = datetime.datetime.now().isoformat()
             break
     write_json(tasks)
 
 def main():
-    add("hello")
+    update(3, "test")
+    mark_done(3)
     print(read_json())
    
 

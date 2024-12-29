@@ -15,9 +15,9 @@
     },
     {
         "id": 3,
-        "description": "hello",
-        "status": "todo",
+        "description": "test",
+        "status": "done",
         "createdAt": "2024-12-28T17:46:34.012840",
-        "updatedAt": "2024-12-28T17:46:34.012840"
+        "updatedAt": "2024-12-28T19:15:22.395158"
     }
 ]
