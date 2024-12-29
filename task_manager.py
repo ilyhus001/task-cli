@@ -4,7 +4,7 @@ import json
 
 FILE = "tasks.json"
 
-def init():
+def init() -> None:
     if(os.path.exists(FILE)):
         print("exists")
     else:
@@ -19,9 +19,15 @@ def write_json(data):
     with open(FILE, "w") as file:
         json.dump(data, file, indent=4)
 
-def empty_tasks():
+def empty_tasks() -> None:
     with open(FILE, "w") as file:
         json.dump([], file)
+
+def update_ids(tasks: list[dict]) -> None:
+    count = 1
+    for task in tasks:
+        task['id'] = count
+        count+=1
 
 def add(task: str):
     tasks = read_json()
@@ -33,6 +39,7 @@ def add(task: str):
       "updatedAt": datetime.datetime.now().isoformat()
     }
     tasks.append(data)
+    print(f"Task added successfully (ID: {len(tasks) + 1})")
     write_json(tasks)
 
 def delete(id):
@@ -44,15 +51,16 @@ def delete(id):
             break
     write_json(tasks)
 
-def update_ids(tasks):
-    count = 1
+def update(id: int, new_description: str):
+    tasks = read_json()
     for task in tasks:
-        task['id'] = count
-        count+=1
-
+        if task.get('id') == id:
+            task['description'] = new_description
+            break
+    write_json(tasks)
 
 def main():
-    delete(1)
+    add("hello")
     print(read_json())
    
 
