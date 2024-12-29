@@ -1,5 +1,5 @@
 import sys
-from task_manager import add, delete, update, mark_in_progress, mark_done
+from task_manager import add, delete, update, list, mark_in_progress, mark_done
 
 def main():
     commands = sys.argv[1:]
@@ -33,7 +33,15 @@ def main():
                     print("First parameter must be an integer")
 
         case "list":
-            pass
+            valid = ["todo", "in-progress", "done"]
+            if len(commands) != 2 or len(commands) != 3 or (len(commands) == 3 and commands[2] not in valid):
+                print("list takes 0 or 1 parameters")
+                print("Valid parameters: todo, in-progress, done")
+                print("E.g. task-cli list (todo)\n  todo is optional")
+            elif len(commands) == 2:
+                list()
+            else:
+                list(commands[2])
 
         case "mark-in-progress":
             if len(commands) != 3:
