@@ -1,37 +1,9 @@
 [
     {
         "id": 1,
-        "description": "hello",
-        "status": "todo",
-        "createdAt": "2024-12-28T17:46:26.698319",
-        "updatedAt": "2024-12-28T17:46:26.698319"
-    },
-    {
-        "id": 2,
-        "description": "hello",
-        "status": "todo",
-        "createdAt": "2024-12-28T17:46:31.754954",
-        "updatedAt": "2024-12-28T17:46:31.754954"
-    },
-    {
-        "id": 3,
-        "description": "test",
+        "description": "commit and push changes",
         "status": "done",
-        "createdAt": "2024-12-28T17:46:34.012840",
-        "updatedAt": "2024-12-28T19:15:22.395158"
-    },
-    {
-        "id": 4,
-        "description": "Eat dinner",
-        "status": "todo",
-        "createdAt": "2024-12-28T19:47:08.174088",
-        "updatedAt": "2024-12-28T19:47:08.174088"
-    },
-    {
-        "id": 5,
-        "description": "Eat dinner",
-        "status": "done",
-        "createdAt": "2024-12-28T19:47:44.009668",
-        "updatedAt": "2024-12-28T19:50:43.271158"
+        "createdAt": "2024-12-28T20:19:07.794578",
+        "updatedAt": "2024-12-28T20:19:56.952691"
     }
 ]

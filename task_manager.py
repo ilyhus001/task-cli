@@ -5,9 +5,7 @@ import json
 FILE = "tasks.json"
 
 def init() -> None:
-    if(os.path.exists(FILE)):
-        print("exists")
-    else:
+    if not os.path.exists(FILE):
         empty_tasks()  # Initialize with an empty list
 
 def read_json() -> list[dict]:
@@ -114,6 +112,9 @@ def list(status="all") -> None:
                     print(f"    status: {task.get('status')}")
                     print(f"    Created: {task.get('createdAt')}")
                     print(f"    Updated: {task.get('updatedAt')}")
+
+        case _:
+            print("Not a valid input for list")
 
 def main():
     update(3, "test")

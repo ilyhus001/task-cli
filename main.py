@@ -1,7 +1,8 @@
 import sys
-from task_manager import add, delete, update, list, mark_in_progress, mark_done
+from task_manager import init, add, delete, update, list, mark_in_progress, mark_done
 
 def main():
+    init()
     commands = sys.argv[1:]
     if commands[0] != 'task-cli' or len(commands) < 1:
         print("Usage: python main.py task-cli <command> [...]")
@@ -34,7 +35,8 @@ def main():
 
         case "list":
             valid = ["todo", "in-progress", "done"]
-            if len(commands) != 2 or len(commands) != 3 or (len(commands) == 3 and commands[2] not in valid):
+            if len(commands) != 2 and len(commands) != 3:
+                print(len(commands))
                 print("list takes 0 or 1 parameters")
                 print("Valid parameters: todo, in-progress, done")
                 print("E.g. task-cli list (todo)\n  todo is optional")
